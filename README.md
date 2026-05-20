@@ -184,7 +184,7 @@ All endpoints are prefixed with `/api`. Below are the core interaction modules:
 | **Stats** | `GET` | `/dashboard/stats`| Return aggregate counts for cards | Admin / Member |
 
 
-## 🛡️ Database Entity Schema Design
+## Database Entity Schema Design
 
 The underlying relational schema mapping managed by Hibernate generates three essential tables with cascading relationship integrity:
 
@@ -224,10 +224,10 @@ The underlying relational schema mapping managed by Hibernate generates three es
 
 ## Roadmap & Future Optimizations
 
-- [ ] **JWT Tokenization:** Implement stateless JSON Web Token filters for secure, intercepted cookie/header authentication pipelines.
-- [ ] **Real-Time WebSockets:** Add live push notifications for task updates and team assignments.
-- [ ] **Advanced Productivity Gantt Charts:** Integrate a rich charts timeline analytics board for project tracking.
-- [ ] **S3 Document Attachments:** Add capability to upload mock files or asset attachments directly onto individual task view wrappers.
+**JWT Tokenization:** Implement stateless JSON Web Token filters for secure, intercepted cookie/header authentication pipelines.
+**Real-Time WebSockets:** Add live push notifications for task updates and team assignments.
+**Advanced Productivity Gantt Charts:** Integrate a rich charts timeline analytics board for project tracking.
+**S3 Document Attachments:** Add capability to upload mock files or asset attachments directly onto individual task view wrappers.
 
 ---
 
