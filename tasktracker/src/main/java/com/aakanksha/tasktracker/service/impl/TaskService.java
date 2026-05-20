@@ -45,6 +45,7 @@ public class TaskService {
 
         return taskRepository.save(task);
     }
+
     public Task updateTaskStatus(Long taskId, String status) {
 
         Task task = taskRepository.findById(taskId)
@@ -54,6 +55,7 @@ public class TaskService {
 
         return taskRepository.save(task);
     }
+
     public DashboardResponse getDashboardData() {
 
         long totalTasks = taskRepository.count();
@@ -77,10 +79,25 @@ public class TaskService {
                 overdueTasks
         );
     }
+
     public List<Task> getTasksByProject(Long projectId) {
+
         return taskRepository.findByProjectId(projectId);
     }
+
     public List<Task> getTasksByUser(Long userId) {
+
         return taskRepository.findByAssignedUserId(userId);
     }
+
+    // NEW METHOD
+    public List<Task> getAllTasks() {
+
+        return taskRepository.findAll();
+    }
+    public void deleteTask(Long taskId) {
+
+        taskRepository.deleteById(taskId);
+    }
+
 }

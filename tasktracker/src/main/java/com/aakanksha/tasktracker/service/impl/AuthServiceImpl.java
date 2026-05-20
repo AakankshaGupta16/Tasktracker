@@ -1,6 +1,7 @@
 package com.aakanksha.tasktracker.service.impl;
 
 import com.aakanksha.tasktracker.dto.LoginRequest;
+import com.aakanksha.tasktracker.dto.LoginResponse;
 import com.aakanksha.tasktracker.dto.SignupRequest;
 import com.aakanksha.tasktracker.entity.User;
 import com.aakanksha.tasktracker.enums.Role;
@@ -20,7 +21,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String signup(SignupRequest request) {
 
-        if(userRepository.findByEmail(request.getEmail()).isPresent()) {
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             return "Email already exists";
         }
 
@@ -28,7 +29,7 @@ public class AuthServiceImpl implements AuthService {
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(userRepository.count() == 0 ? Role.ADMIN : Role.MEMBER)
+                .role(Role.valueOf(request.getRole()))
                 .build();
 
         userRepository.save(user);
@@ -37,8 +38,36 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String login(LoginRequest request) {
+    public LoginResponse login(
+            LoginRequest request
+    ) {
 
-        return "Login API pending JWT implementation";
+        User user = userRepository
+                .findByEmail(request.getEmail())
+                .orElseThrow(() ->
+                        new RuntimeException(
+                                "User not found"
+                        )
+                );
+
+        boolean matches =
+                passwordEncoder.matches(
+                        request.getPassword(),
+                        user.getPassword()
+                );
+
+        if (!matches) {
+
+            throw new RuntimeException(
+                    "Invalid password"
+            );
+        }
+
+        return new LoginResponse(
+                user.getId(),
+                user.getName(),
+                user.getEmail(),
+                user.getRole().name()
+        );
     }
 }
