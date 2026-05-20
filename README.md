@@ -4,27 +4,27 @@ A robust, full-stack task and project management application designed to streaml
 
 ---
 
-## 🚀 Core Features
+## Core Features
 
-### 🔐 Security & Access Control
+### Security & Access Control
 * **Authentication & Authorization:** Secure user registration and login pipelines.
 * **Password Hashing:** Industry-standard encryption using `BCryptPasswordEncoder`.
 * **Role-Based Access Control (RBAC):** Tailored UI perspectives and API access levels for **Admins** (full control over projects, tasks, and assignments) and **Members** (view and update assigned task statuses).
 * **Stateless Security Session:** Configured for clean, decoupled client-server interactions.
 
-### 📋 Task & Project Management
+### Task & Project Management
 * **Project Isolation:** Group related tasks under specific project umbrellas.
 * **Full CRUD Operations:** Seamless creation, retrieval, updates, and deletion of tasks and projects.
 * **State & Urgency Matrices:** Dynamic tracking via **Task Statuses** (*Todo, In Progress, Completed*) and **Priorities** (*Low, Medium, High*).
 * **Workload Distribution:** Capability to assign specific tasks to individual users with hard due-date support.
 
-### 📊 Analytics & UI
+### Analytics & UI
 * **Dashboard Insights:** High-level metrics tracking total tasks, completion rates, and upcoming deadlines.
 * **Responsive Layout:** Built with modern CSS utilities ensuring seamless use across desktop, tablet, and mobile displays.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend Architecture
 * **Language:** Java 17
@@ -47,7 +47,7 @@ A robust, full-stack task and project management application designed to streaml
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 tasktracker/
